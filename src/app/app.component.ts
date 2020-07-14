@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-app';
+  title = 'Todo simple';
+  todos = [
+    {label: 'Add something'}
+  ]
+
+  addTodo(newToDoLabel){
+    let newTodo = {
+      label: newToDoLabel
+    };
+    this.todos.push(newTodo);
+    console.log( this.todos)
+  }
 }
