@@ -5,17 +5,24 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
+
 export class AppComponent {
-  title = 'Todo simple';
-  todos = [
-    {label: ''}
+  title = 'Angular cards';
+  Cards = [
+    {label:'testing'}
   ]
 
-  addTodo(newToDoLabel){
-    let newTodo = {
-      label: newToDoLabel
+  addCard(elem) {
+    var newCard = {
+      label: elem,
+      text: 'angular mini card'
     };
-    this.todos.push(newTodo);
-    console.log( this.todos)
+   this.Cards.push(newCard)
+  }
+
+  deleteCard(card) {
+    this.Cards= this.Cards.filter(el => el.label !== card.label)
   }
 }
+ 

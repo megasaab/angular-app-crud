@@ -1,11 +1,15 @@
-<h1>{{title}}</h1>
-<div class="elements">
-  <input type="text" #newTodo />
-  <button (click)="addTodo(newTodo.value); newTodo.value=''">Add</button>
-</div>
-<div class="content">
-  <div class="label_content" *ngFor="let todo of todos">
-    <p>{{todo.label}}</p>
-    <button *ngIf="todo.label">del</button>
+<header class="header">
+  <h1>{{title}}</h1>
+  <input class="header-input" type="text" #newCard>
+  <button (click)="addCard(newCard.value)">Add</button>
+</header>
+
+<section class="card-section">
+  <div *ngFor="let card of Cards">
+    <div class="card">{{card.label}}
+      <p>{{card.text}}</p>
+      <button (click)="deleteCard(this.card)">del</button>
+    </div>
+  
   </div>
-</div>
+</section>
