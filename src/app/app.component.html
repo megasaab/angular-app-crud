@@ -6,9 +6,9 @@
 
 <section class="card-section">
   <div *ngFor="let card of Cards">
-    <div class="card">{{card.label}}
+    <div *ngIf="card.label" class="card">{{card.label}}
       <p>{{card.text}}</p>
-      <button (click)="deleteCard(this.card)">del</button>
+      <button (click)="deleteCard(card)">❌</button>
     </div>
   
   </div>
