@@ -1,13 +1,11 @@
 <h1>{{title}}</h1>
-<div class="content">
-  <input type="text" #newTodo/>
+<div class="elements">
+  <input type="text" #newTodo />
   <button (click)="addTodo(newTodo.value); newTodo.value=''">Add</button>
-  <table>
-    <tr>
-      <th>Label</th>
-    </tr>
-    <tr *ngfor="let todo of todos;index as i;">
-      <th>{{todo.label}}</th>
-    </tr>
-  </table>
+</div>
+<div class="content">
+  <div class="label_content" *ngFor="let todo of todos">
+    <p>{{todo.label}}</p>
+    <button *ngIf="todo.label">del</button>
+  </div>
 </div>

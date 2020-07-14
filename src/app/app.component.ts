@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Todo simple';
   todos = [
-    {label: 'Add something'}
+    {label: ''}
   ]
 
   addTodo(newToDoLabel){
