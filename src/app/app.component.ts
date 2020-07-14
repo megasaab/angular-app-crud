@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Inject }  from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +13,10 @@ export class AppComponent {
   title = 'Angular cards';
   Cards = []
   inputNum = 5;
+  startIndex = 0;
+  endIndex = 5;
+
+
 
   addCard(elem) {
     let uid = function() {
@@ -37,9 +43,17 @@ export class AppComponent {
 
   countEls(elem){
     this.inputNum = elem.value ? elem.value : 5
-    console.log(this.inputNum)
+    console.log(this.inputNum)    
   }
 
+  getArrayFromNumber(len){
+    return new Array(len/10)
+  }
+
+  updateIndex(pageIndex){
+    this.startIndex = pageIndex * 5;
+    this.endIndex = this.startIndex + 5;
+  }
 
 }
  

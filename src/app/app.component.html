@@ -12,7 +12,9 @@
 
 
 <section class="card-section">
-  <div *ngFor="let card of Cards.slice(0,inputNum);">
+  <div *ngFor="let card of Cards.slice(startIndex,endIndex);
+        let i = index;
+  ">
     <div class="card">{{card.label}}
       <p>{{card.text}}</p>
       <button (click)="deleteCard(card)">❌</button>
@@ -23,14 +25,7 @@
 
 
 <div class="center">
-  <div class="pagination">
-    <a href="#">&laquo;</a>
-    <a href="#">1</a>
-    <a href="#" class="active">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">5</a>
-    <a href="#">6</a>
-    <a href="#">&raquo;</a>
-  </div>
+  <ul #pagination class="pagination">
+    <a (click)="updateIndex(j)" *ngFor="let i of getArrayFromNumber(Cards.length); let j = index" href="#">{{j+1}}</a>
+  </ul>
 </div>
