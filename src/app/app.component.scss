@@ -17,17 +17,17 @@ header {
         height: 50px;
     }
 
-    .header-input::placeholder{
+    .header-input::placeholder {
         color: #656464;
     }
 
-    button{
+    button {
         font-weight: bold;
         font-size: 14px;
         line-height: 17px;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: #FFFFFF;
+        color: #ffffff;
         background: green;
         border-radius: 3px;
         padding: 17px 41px;
@@ -35,11 +35,43 @@ header {
         margin-left: -3px;
         cursor: pointer;
     }
-    
-
 }
 
+.amount-card {
+    text-align: center;
 
+    input {
+        margin-top: 25px;
+        background-color: #f0f0f4;
+        border-radius: 3px;
+        padding: 5px 20px;
+        border: none;
+        font-size: 16px;
+        line-height: 19px;
+        outline: none;
+        width: 10%;
+        height: 50px;
+    }
+
+    input::placeholder {
+        color: #656464;
+    }
+
+    button {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 14px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #ffffff;
+        background: green;
+        border-radius: 3px;
+        padding: 17px 10px;
+        border: none;
+        margin-left: -3px;
+        cursor: pointer;
+    }
+}
 
 .card-section {
     display: flex;
@@ -62,25 +94,25 @@ header {
         line-height: 17px;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: #FFFFFF;
-        background: #1C62CD;
+        color: #ffffff;
+        background: #1c62cd;
         padding: 17px 41px;
         border: none;
         cursor: pointer;
-        overflow:hidden;
+        overflow: hidden;
     }
-    
+
     .card:hover {
         box-shadow: 0px 0px 15px rgba(10, 20, 40, 0.6);
         transition: all 0.3s;
         cursor: pointer;
     }
 
-    .card:hover button{
+    .card:hover button {
         opacity: 1;
     }
 
-    button{
+    button {
         position: absolute;
         border-radius: 50%;
         height: 30px;
@@ -92,10 +124,35 @@ header {
         left: 165px;
         background-color: initial;
         border: 0;
-        z-index: 5;
+        z-index: 10;
     }
-
-    
-    
-  
 }
+
+.center {
+    text-align: center;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+
+.pagination a.active {
+    background-color: #4caf50;
+    color: white;
+    border: 1px solid #4caf50;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+

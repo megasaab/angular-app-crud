@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Angular cards';
   Cards = []
+  inputNum = 5;
 
   addCard(elem) {
     let uid = function() {
@@ -23,12 +24,20 @@ export class AppComponent {
       text: 'angular mini card',
       id: uid(),
     };
-   this.Cards.push(newCard)
+    if(elem !== ''){
+      this.Cards.push(newCard)
+    }
+  
   }
 
   deleteCard(card) {
     this.Cards= this.Cards.filter(t => t.id !== card.id)
     console.log(card)
+  }
+
+  countEls(elem){
+    this.inputNum = elem.value ? elem.value : 5
+    console.log(this.inputNum)
   }
 
 
