@@ -67,6 +67,7 @@ header {
         padding: 17px 41px;
         border: none;
         cursor: pointer;
+        overflow:hidden;
     }
     
     .card:hover {
@@ -90,6 +91,8 @@ header {
         top: 0;
         left: 165px;
         background-color: initial;
+        border: 0;
+        z-index: 5;
     }
 
     
