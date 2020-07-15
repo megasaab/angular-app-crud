@@ -115,6 +115,10 @@ header {
         opacity: 1;
     }
 
+    .card:hover .okaybtn{
+        opacity: 1;
+    }
+
     .delete-card-btn {
         border-radius: 50%;
         height: 30px;
@@ -136,10 +140,16 @@ header {
         opacity: 0;
         border: none;
         background: initial;
+        outline: none;
+        cursor: pointer;
     }
 
     .editbtn{
         opacity: 0;
+        background: initial;
+        border: none;
+        outline: none;
+        cursor: pointer;
     }
     
 }
