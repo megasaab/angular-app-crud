@@ -5,7 +5,7 @@
 </header>
 
 <div class="amount-card">
-  <input placeholder="Write number" min="1" max="5" type="number" #Mynum>
+  <input placeholder="5" min="1" max="5" type="number" #Mynum>
   <button (click)="countEls(Mynum)">Count</button>
 </div>
 
@@ -15,7 +15,8 @@
   <div *ngFor="let card of Cards.slice(startIndex,endIndex);
         let i = index;
   ">
-    <div class="card">{{card.label}}
+    <div class="card">
+      <p>{{card.label}}</p>
       <p>{{card.text}}</p>
       <button (click)="deleteCard(card)">❌</button>
     </div>

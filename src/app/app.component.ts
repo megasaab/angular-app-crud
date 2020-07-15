@@ -12,7 +12,7 @@ import { DOCUMENT } from '@angular/common';
 export class AppComponent {
   title = 'Angular cards';
   Cards = []
-  inputNum = 5;
+  inputNum = 5
   startIndex = 0;
   endIndex = 5;
 
@@ -32,6 +32,7 @@ export class AppComponent {
     };
     if(elem !== ''){
       this.Cards.push(newCard)
+      
     }
   
   }
@@ -42,17 +43,26 @@ export class AppComponent {
   }
 
   countEls(elem){
-    this.inputNum = elem.value ? elem.value : 5
-    console.log(this.inputNum)    
+    this.inputNum= elem.value ? elem.value : this.inputNum
+    this.endIndex = this.inputNum
+    
   }
 
   getArrayFromNumber(len){
-    return new Array(len/10)
+    if (len % this.inputNum == 0){
+      return new Array(Math.round(len / this.inputNum))
+    }else{
+      return new Array(Math.round(len / this.inputNum) + 1)
+    }
   }
 
   updateIndex(pageIndex){
-    this.startIndex = pageIndex * 5;
-    this.endIndex = this.startIndex + 5;
+    console.log(this.Cards.length, pageIndex)
+    this.startIndex = pageIndex * this.inputNum;
+    this.endIndex = this.startIndex + this.inputNum;
+    if (this.endIndex > this.Cards.length){
+      this.endIndex = this.Cards.length
+    }
   }
 
 }
