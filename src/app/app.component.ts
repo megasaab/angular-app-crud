@@ -8,23 +8,54 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./app.component.scss']
 })
 
-
 export class AppComponent {
   title = 'Angular cards';
-  Cards = []
-  inputNum = 5
-  startIndex = 0;
-  endIndex = 5;
+  Cards: Array<object> = []
+  tempCards = 0
+  inputNum: number = 5
+  startIndex: number = 0;
+  endIndex: number = 5;
+  pagArray: Array<any> = new Array(1)
 
+  // initialize temp array of 15 objects
+  ngOnInit(){
+    for (let i = 0; i < this.tempCards; i++){
+      this.Cards.push({
+        id: String(i), label: 'label' + String(i), text: 'text'
+      })
+    }
+    this._updatePagination()
+    
+  }
+
+  _updatePagination(){
+    let round = Math.floor(this.Cards.length / this.inputNum)
+    if (this.Cards.length % this.inputNum === 0){
+      this.pagArray = new Array(round)
+    }else{
+      this.pagArray = new Array(round + 1)
+    }
+  }
+
+  _updateEndIndex(){
+    this.endIndex = Math.min(this.startIndex + this.inputNum, this.Cards.length)
+  }
+
+  _updateStartIndex(){
+    let index = Math.floor(this.startIndex / this.inputNum)
+    this.startIndex = this.inputNum * index
+  }
 
 
   addCard(elem) {
+    // function to generate new uid
     let uid = function() {
       return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
         var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
         return v.toString(16);
       });
     }
+
     var newCard = {
       label: elem,
       text: 'angular mini card',
@@ -32,37 +63,32 @@ export class AppComponent {
     };
     if(elem !== ''){
       this.Cards.push(newCard)
-      
+      this._updatePagination()
+      this._updateEndIndex()
     }
   
   }
 
   deleteCard(card) {
-    this.Cards= this.Cards.filter(t => t.id !== card.id)
-    console.log(card)
+    this.Cards = this.Cards.filter(t => t.id !== card.id)
+    this._updatePagination()
+    this._updateStartIndex()
+    this._updateEndIndex()
+
   }
 
   countEls(elem){
-    this.inputNum= elem.value ? elem.value : this.inputNum
-    this.endIndex = this.inputNum
+    this.inputNum = elem.value ? parseInt(elem.value) : this.inputNum
+    this._updatePagination()
+    this._updateStartIndex()
+    this._updateEndIndex()
+
     
   }
 
-  getArrayFromNumber(len){
-    if (len % this.inputNum == 0){
-      return new Array(Math.round(len / this.inputNum))
-    }else{
-      return new Array(Math.round(len / this.inputNum) + 1)
-    }
-  }
-
   updateIndex(pageIndex){
-    console.log(this.Cards.length, pageIndex)
     this.startIndex = pageIndex * this.inputNum;
-    this.endIndex = this.startIndex + this.inputNum;
-    if (this.endIndex > this.Cards.length){
-      this.endIndex = this.Cards.length
-    }
+    this._updateEndIndex()
   }
 
 }

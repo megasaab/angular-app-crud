@@ -18,7 +18,8 @@
     <div class="card">
       <p>{{card.label}}</p>
       <p>{{card.text}}</p>
-      <button (click)="deleteCard(card)">❌</button>
+      <button style="float: left;" (click)="deleteCard(card)">❌</button>
+      <button style="float:right;">🖋️</button>
     </div>
   </div>
 </section>
@@ -27,6 +28,8 @@
 
 <div class="center">
   <ul #pagination class="pagination">
-    <a (click)="updateIndex(j)" *ngFor="let i of getArrayFromNumber(Cards.length); let j = index" href="#">{{j+1}}</a>
+    <div *ngIf="pagArray.length > 1">
+      <a (click)="updateIndex(j)" *ngFor="let i of pagArray; let j = index" href="#">{{j+1}}&nbsp;</a>
+    </div>
   </ul>
 </div>

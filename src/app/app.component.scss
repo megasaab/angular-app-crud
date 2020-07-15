@@ -81,7 +81,7 @@ header {
 
     .card {
         border: 1px solid black;
-        max-width: 200px;
+        width: 200px;
         height: 200px;
         white-space: normal;
         text-align: center;
@@ -113,18 +113,15 @@ header {
     }
 
     button {
-        position: absolute;
         border-radius: 50%;
         height: 30px;
         width: 30px;
         outline: none;
-        opacity: 0;
         cursor: pointer;
-        top: 0;
-        left: 165px;
         background-color: initial;
         border: 0;
         z-index: 10;
+        opacity: 0;
     }
 }
 
