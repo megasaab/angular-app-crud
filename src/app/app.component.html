@@ -16,10 +16,11 @@
         let i = index;
   ">
     <div class="card">
-      <p>{{card.label}}</p>
-      <p>{{card.text}}</p>
-      <button style="float: left;" (click)="deleteCard(card)">❌</button>
-      <button style="float:right;">🖋️</button>
+      <p #cardLabel >{{card.label}}</p>
+      <input class="editinput" #InputCardLabel id={{card.id}} placeholder="new label">
+      <button class="delete-card-btn" (click)="deleteCard(card)">❌</button>
+      <button class="okaybtn" (click)="editCardTitle(InputCardLabel,okaybtn)" #okayBtn >👌</button>
+      <button class="editbtn" (click)="showInput(InputCardLabel)">🖋️</button>
     </div>
   </div>
 </section>

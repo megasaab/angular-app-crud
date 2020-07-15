@@ -9,6 +9,7 @@ import { DOCUMENT } from '@angular/common';
 })
 
 export class AppComponent {
+  edit = false;
   title = 'Angular cards';
   Cards: Array<object> = []
   tempCards = 0
@@ -74,7 +75,22 @@ export class AppComponent {
     this._updatePagination()
     this._updateStartIndex()
     this._updateEndIndex()
+  }
 
+  editCardTitle(InputCardLabel){
+    InputCardLabel.style.opacity = '0'
+    let index = this.Cards.findIndex(t => t.id === InputCardLabel.id)
+    if (index != -1){
+      this.Cards[index].label = InputCardLabel.value
+    }
+
+    InputCardLabel.value = ''
+
+  }
+
+  showInput(InputCardLabel,okayBtn) {
+    InputCardLabel.style.opacity = '1'
+    okayBtn.style.opacity = '1'
   }
 
   countEls(elem){
@@ -91,5 +107,7 @@ export class AppComponent {
     this._updateEndIndex()
   }
 
+
 }
+
  

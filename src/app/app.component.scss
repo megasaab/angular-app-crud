@@ -108,11 +108,14 @@ header {
         cursor: pointer;
     }
 
-    .card:hover button {
+    .card:hover .delete-card-btn {
+        opacity: 1;
+    }
+    .card:hover .editbtn{
         opacity: 1;
     }
 
-    button {
+    .delete-card-btn {
         border-radius: 50%;
         height: 30px;
         width: 30px;
@@ -123,6 +126,22 @@ header {
         z-index: 10;
         opacity: 0;
     }
+
+    .editinput{
+        opacity: 0;
+        width: 100px;
+    }
+    
+    .okaybtn{
+        opacity: 0;
+        border: none;
+        background: initial;
+    }
+
+    .editbtn{
+        opacity: 0;
+    }
+    
 }
 
 .center {
