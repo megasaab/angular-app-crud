@@ -1,3 +1,6 @@
  <div class="card">
-   <p>{{card.label}}</p>
+   <p *ngIf="!isEdit">{{card.label}}</p>
+   <input *ngIf="isEdit" class="editInput" (blur)="isEdit = false" [(ngModel)]="input" (keyup.enter)="edit()">
+   <button class="delete-card-btn" (click)="deleteCard(card)">❌</button>
+   <button class="editBtn" (click)="showInput()">🖋️</button>
  </div>

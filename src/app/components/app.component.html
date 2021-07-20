@@ -11,7 +11,12 @@
 
 
 <section class="card-section">
-  <app-card-component class="card" *ngFor="let card of cards.slice(startIndex, endIndex)" [card]="card"></app-card-component>
+  <app-card-component
+    *ngFor="let card of cards.slice(startIndex, endIndex); let idx = index" [card]="card"
+    (onEdit)="editTitle($event, idx)"
+    (onDeleteCard)="deleteCard($event)"
+  >
+  </app-card-component>
 </section>
 
  <!--Pagination-->

@@ -6,11 +6,9 @@ import {Card} from '../../models/models';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
 })
 
 export class AppComponent implements OnInit {
-  edit = false;
   title = 'Angular cards';
   cards: Card[] = [];
   inputNum = 5;
@@ -65,10 +63,13 @@ export class AppComponent implements OnInit {
 
   deleteCard(card: Card): void {
     this.cards = this.cards.filter(item => item.id !== card.id);
-    console.log(this.cards);
     this.updatePagination();
     this.updateStartIndex();
     this.updateEndIndex();
+  }
+
+  editTitle(title: string, index: number): void {
+    this.cards[index].label = title;
   }
 
 
